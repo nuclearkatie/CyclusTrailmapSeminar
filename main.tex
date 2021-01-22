@@ -1,0 +1,105 @@
+\documentclass{beamer}
+
+%
+% Use Packages
+%
+
+\usepackage{hyperref}
+%\usepackage[acronym,toc]{glossaries} %%%% Acronym/glossary support
+\usepackage[]{glossaries-extra}
+\glsenableentrycount
+%\usepackage{authblk}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+\usepackage[flushleft]{threeparttable}
+%\usepackage[margin=1.0in]{geometry}
+%\usepackage[plain]{algorithm}
+\usepackage{cite}
+\usepackage{soul}
+\usepackage{xspace}
+
+\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}
+\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}
+\newcommand{\Trailmap}{\textsc{Trailmap}\xspace}
+
+\author{Kathryn A. Mummah, Paul P.H. Wilson\\University of Wisconsin - Madison}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\date{January, 2021} 
+\title{The \Cyclus Fuel Cycle Simulator and Applications of \Cyclus for International Safeguards}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\usetheme[white,nav]{Wisconsin}
+\begin{document}
+\newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
+\newlength{\highlightheight}
+\newlength{\highlightdepth}
+\newlength{\highlightmargin}
+\setlength{\highlightmargin}{2pt}
+\settoheight{\highlightheight}{\alphabet}
+\settodepth{\highlightdepth}{\alphabet}
+\addtolength{\highlightheight}{\highlightmargin}
+\addtolength{\highlightdepth}{\highlightmargin}
+\addtolength{\highlightheight}{\highlightdepth}
+\newcommand*{\Highlight}{\rlap{\textcolor{HighlightBackground}{\rule[-\highlightdepth]{\linewidth}{\highlightheight}}}}
+  
+\begin{frame}
+\titlepage
+\end{frame}
+
+%% Slides
+
+% \begin{frame}
+% \frametitle{Outline}
+% \tableofcontents
+% \end{frame}
+
+\section*{Outlines}
+\frame{
+\frametitle{Outline of Part I: Nuclear Fuel Cycle Simulators:\\What and Why}
+\tableofcontents[part=1]}
+%\subsection{Part II: Trailmap: Applying \Cyclus to International Safeguards}
+\frame{
+\frametitle{Outline of Part II: Trailmap: Applying \Cyclus\\to International Safeguards}
+\tableofcontents[part=2]}
+
+\part{Nuclear Fuel Cycle Simulators: What and Why}
+\frame{\partpage}
+
+\input{sections/fcs}
+\input{sections/cyclus}
+
+\part{Trailmap: Applying \Cyclus to International Safeguards}
+\frame{\partpage}
+
+\input{sections/trailmap}
+
+\begin{frame}{Funding}
+    \begin{itemize}
+        \item This research was performed under appointment to the Nuclear Nonproliferation International Safeguards Fellowship Program sponsored by the National Nuclear Security Administration’s Office of International Nuclear Safeguards (NA-241)
+        \item This work was funded in-part by the Consortium for Verification Technology under Department of Energy National Nuclear Security Administration award number DE-NA0002534.
+        \item I gratefully acknowledge the support of the U.S. Department of Energy through the 
+        \begin{itemize}
+            \item LANL/LDRD Program
+            \item G. T. Seaborg Institute
+            \item Nuclear Criticality Safety Program
+        \end{itemize} for this work.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+    \bibliographystyle{ans}
+{\footnotesize\bibliography{references}}
+\end{frame}
+
+\end{document}
